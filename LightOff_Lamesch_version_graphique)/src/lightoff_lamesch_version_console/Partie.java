@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Partie {
 
-    private GrilleDeJeu grille;
+    private  GrilleDeJeu grille;
     private int nbCoups;
 
     public Partie() {

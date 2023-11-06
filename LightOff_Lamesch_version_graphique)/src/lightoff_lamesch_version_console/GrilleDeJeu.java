@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class GrilleDeJeu {
     // Attributs de la classe
-    private CelluleLumineuse[][] matriceCellules;
+    public CelluleLumineuse[][] matriceCellules;
     private int nbLignes;
     private int nbColonnes;
     private Random rand = new Random();
@@ -127,7 +127,7 @@ public class GrilleDeJeu {
         return builder.toString();
     }
 
-    void melangerMatriceAleatoirement(int i) {
+    public void melangerMatriceAleatoirement(int i) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
