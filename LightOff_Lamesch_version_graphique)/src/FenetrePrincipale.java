@@ -14,28 +14,27 @@ import lightoff_lamesch_version_console.GrilleDeJeu;
  */
 public class FenetrePrincipale extends javax.swing.JFrame {
 
-    private final GrilleDeJeu grille;
+    private  GrilleDeJeu grille = null;
 
     /**
      * Creates new form FenetrePrincipale
      */
     public FenetrePrincipale() {
         initComponents();
-        int nbLignes = 10;
-        int nbColonnes = 10;
+        int nbLignes = 12;
+        int nbColonnes = 12;
 PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
     for (int i=0; i < nbLignes; i++) {
  for (int j=0; j < nbColonnes; j++ ) {
- JButton bouton_cellule = new JButton(); // création d'un bouton
+ CelluleGraphique bouton_cellule = new CelluleGraphique( grille.matriceCellules[i][j], 36,36);
  PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
  }
 }
   GrilleDeJeu grille;
   int nbCoups;  
   this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
-  
-}
 
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,4 +105,8 @@ PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanneauGrille;
     // End of variables declaration//GEN-END:variables
+
+    private void initialiserPartie() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
