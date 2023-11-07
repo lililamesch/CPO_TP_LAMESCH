@@ -13,13 +13,19 @@ import lightoff_lamesch_version_console.GrilleDeJeu;
  * @author Lili
  */
 public class FenetrePrincipale extends javax.swing.JFrame {
-
-    private  GrilleDeJeu grille = null;
-
+  
+  GrilleDeJeu grille;
+  int nbCoups;  
+  this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
+  
+  private  GrilleDeJeu grille = null;
+    
+  
     /**
      * Creates new form FenetrePrincipale
      */
     public FenetrePrincipale() {
+        
         initComponents();
         int nbLignes = 12;
         int nbColonnes = 12;
@@ -29,10 +35,14 @@ PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
  CelluleGraphique bouton_cellule = new CelluleGraphique( grille.matriceCellules[i][j], 36,36);
  PanneauGrille.add(bouton_cellule); // ajout au Jpanel PanneauGrille
  }
-}
-  GrilleDeJeu grille;
-  int nbCoups;  
-  this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
+ getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20,
+nbColonnes*40, nbLignes*40));
+this.pack();
+
+this.revalidate();
+
+
+    }
 
 }
     /**
@@ -45,27 +55,60 @@ PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
+        PanneauBoutonVerticaux = new javax.swing.JPanel();
+        btnLigne0 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanneauGrille.setBackground(new java.awt.Color(51, 204, 255));
 
+        javax.swing.GroupLayout PanneauBoutonVerticauxLayout = new javax.swing.GroupLayout(PanneauBoutonVerticaux);
+        PanneauBoutonVerticaux.setLayout(PanneauBoutonVerticauxLayout);
+        PanneauBoutonVerticauxLayout.setHorizontalGroup(
+            PanneauBoutonVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+        PanneauBoutonVerticauxLayout.setVerticalGroup(
+            PanneauBoutonVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        btnLigne0.setText("btnLigne0 ");
+        btnLigne0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLigne0ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanneauGrilleLayout = new javax.swing.GroupLayout(PanneauGrille);
         PanneauGrille.setLayout(PanneauGrilleLayout);
         PanneauGrilleLayout.setHorizontalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addGroup(PanneauGrilleLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLigne0)
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         PanneauGrilleLayout.setVerticalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PanneauGrilleLayout.createSequentialGroup()
+                .addComponent(btnLigne0)
+                .addGap(0, 337, Short.MAX_VALUE))
         );
 
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 360, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLigne0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLigne0ActionPerformed
+       this.grille.activerLigneDeCellules(0);
+       repaint();
+    }//GEN-LAST:event_btnLigne0ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -103,10 +146,13 @@ PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanneauBoutonVerticaux;
     private javax.swing.JPanel PanneauGrille;
+    private javax.swing.JButton btnLigne0;
     // End of variables declaration//GEN-END:variables
 
     private void initialiserPartie() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
 }
