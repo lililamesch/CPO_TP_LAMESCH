@@ -97,7 +97,7 @@ this.revalidate();
             .addComponent(PanneauBoutonVerticaux, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PanneauGrilleLayout.createSequentialGroup()
                 .addComponent(btnLigne0)
-                .addGap(0, 337, Short.MAX_VALUE))
+                .addContainerGap(337, Short.MAX_VALUE))
         );
 
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 360, 360));
